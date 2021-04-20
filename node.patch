@@ -1,0 +1,14 @@
+--- conduit_node_iterator.hpp	2021-02-17 12:45:12.510000000 +0000
++++ conduit_node_iterator.hpp	2021-02-17 12:45:49.950000000 +0000
+@@ -188,10 +188,7 @@
+  * @param rhs the iterator to which to add the offset
+  * @return the offset iterator
+  */
+-template<typename NodeIter>
+-NodeIter operator+(index_t lhs, NodeIter const &rhs) {
+-    return rhs + lhs;
+-}
++
+ 
+ /**
+  * A random access iterator which iterates over the children of a node.

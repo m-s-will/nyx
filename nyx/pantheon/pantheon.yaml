@@ -1,0 +1,18 @@
+pantheon:
+    version: 1.1 
+    state: research
+
+project:
+    name: ECP-Examples 
+    website: 
+
+workflow:
+    pantheonid: ECP-Examples_Nyx-002 
+    desc: Pantheon sampling workflow
+    workflow_app: nyx 
+    workflow_in-situ: in-situ
+    workflow_post-processing: post
+           
+contact: 
+    name: David Rogers 
+    email: dhr@lanl.gov 
