@@ -93,14 +93,15 @@ if $INSTALL_ASCENT; then
         #spack install ascent@0.6.0~openmp~shared~adios~mfem+fortran+test~python+serial+mpi+cuda+vtkh ^vtk-m+cuda cuda_arch=52 ^hwloc+cuda
         #spack install cuda@11.2.0
         #spack compiler find
-        spack install conduit@0.6.0~adios~doc~doxygen+fortran+hdf5+hdf5_compat+mpi~python~shared~silo+test~zfp ^hwloc+cuda ^mpich ^cmake@3.14.7 ^cuda@11.2.1
+        spack install ascent
+        #spack install conduit@0.6.0~adios~doc~doxygen+fortran+hdf5+hdf5_compat+mpi~python~shared~silo+test~zfp ^hwloc+cuda ^mpich ^cmake@3.14.7 ^cuda@11.2.1
         # patch faulty nodeIterator in conduit package
-        CONDUIT=$(spack find -p conduit)
-        CONDUIT_INSTALL_DIR=${CONDUIT##* }
-        pushd $CONDUIT_INSTALL_DIR/include/conduit/ 
-        patch < /home/docker/nyx/node.patch
-        popd 
-        spack install ascent@0.6.0~openmp~shared~adios~mfem+fortran+test~python+serial+mpi+cuda+vtkh ^vtk-m+cuda cuda_arch=86 ^conduit@0.6.0~adios~doc~doxygen+fortran+hdf5+hdf5_compat+mpi~python~shared~silo+test~zfp ^hwloc+cuda ^mpich ^cuda@11.2.1
+        #CONDUIT=$(spack find -p conduit)
+        #CONDUIT_INSTALL_DIR=${CONDUIT##* }
+        #pushd $CONDUIT_INSTALL_DIR/include/conduit/ 
+        #patch < /home/docker/nyx/node.patch
+        #popd 
+        #spack install ascent@0.6.0~openmp~shared~adios~mfem+fortran+test~python+serial+mpi+cuda+vtkh ^vtk-m+cuda cuda_arch=86 ^conduit@0.6.0~adios~doc~doxygen+fortran+hdf5+hdf5_compat+mpi~python~shared~silo+test~zfp ^hwloc+cuda ^mpich ^cuda@11.2.1
         #spack install -n ascent@0.6.0~openmp~shared~adios~mfem+fortran+test~python+serial+mpi+cuda+vtkh ^vtk-h@0.6.5+cuda~openmp+mpi+serial~shared ^vtk-m+cuda cuda_arch=maxwell ^cuda@10.2.89
     fi
 

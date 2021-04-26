@@ -32,10 +32,10 @@ pushd $PANTHEON_WORKFLOW_DIR
 # module load hdf5/1.8.18
 
 # Commits
-NYX_COMMIT=20.04-494-g694daae
-#NYX_COMMIT=21.02.1
-AMREX_COMMIT=20.07-45-g6f2e60118
-#AMREX_COMMIT=21.02
+#NYX_COMMIT=20.04-494-g694daae
+NYX_COMMIT=21.02.1
+#AMREX_COMMIT=20.07-45-g6f2e60118
+AMREX_COMMIT=21.02
 
 #cmkdir $PACKAGEDIR 
 pushd $PACKAGEDIR
@@ -74,13 +74,20 @@ git checkout $NYX_COMMIT
 popd
 
 pushd Nyx/Exec/LyA
-
+spack load ascent 
+spack load conduit
 ASCENT=$(spack find -p ascent)
 ASCENT_INSTALL_DIR=${ASCENT##* }
+echo "$ASCENT"
+echo "$ASCENT_INSTALL_DIR"
 
 CUDA=$(spack find -p cuda)
 CUDA_HOME=${CUDA##* }
 
+CONDUIT=$(spack find -p conduit)
+CONDUIT_HOME=${CONDUIT##* }
+echo "$CONDUIT"
+echo "$CONDUIT_HOME"
  #replace the GNUmakefile with a custom one
 mv -f /home/docker/nyx/GNUmakefile .
 
@@ -88,16 +95,13 @@ echo "--------------------------------------------------"
 echo "PTN: ASCENT_INSTALL_DIR $ASCENT_INSTALL_DIR"
 echo "--------------------------------------------------"
 
-make -j12  \
-        #USE_CUDA=TRUE \
-        USE_CUDA=FALSE \
+make USE_CUDA=FALSE \
         USE_ASCENT_INSITU=TRUE \
         COMP=gnu \
         NO_HYDRO=TRUE \
         USE_HEATCOOL=FALSE \
-        ASCENT_HOME=$ASCENT_INSTALL_DIR
-        #CUDA_HOME=$CUDA_HOME \
-        #CUDA_ARCH=86
+        ASCENT_HOME=$ASCENT_INSTALL_DIR \
+        CONDUIT_DIR=$CONDUIT_HOME
 popd
 popd
 popd

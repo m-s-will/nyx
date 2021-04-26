@@ -25,7 +25,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get -y install \
     tcl \
     nginx
 
-USER docker
+#USER docker
 ENV PANTHEON_BASE_PATH=/home/docker
 ENV COMPUTE_ALLOCATION=Nyx
 # copy the required folders before each step
@@ -58,7 +58,6 @@ RUN ./sbang.sh run/run.sh
 COPY nyx/postprocess/ /home/docker/nyx/postprocess/
 RUN ./sbang.sh postprocess/postprocess.sh
 RUN ./sbang.sh postprocess/timestamp.sh
-
 
 COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80

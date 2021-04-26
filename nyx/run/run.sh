@@ -46,4 +46,4 @@ pushd ${PANTHEON_RUN_DIR}
 
 # #mpiexec -n 6 ./Nyx3d.gnu.TPROF.MPI.CUDA.ex inputs_nohydro.64.cuda  insitu.int=1 max_step=3 amr.max_grid_size=32 amr.regrid_on_restart=1
 # ./Nyx3d.gnu.TPROF.MPI.CUDA.ex inputs_nohydro.64.cuda  insitu.int=1 max_step=3 amr.max_grid_size=32 amr.regrid_on_restart=1
-./Nyx3d.gnu.TPROF.MPI.OMP.ex inputs_nohydro.rt insitu.int=1 max_step=3 amr.max_grid_size=32 amr.regrid_on_restart=1
+time ./Nyx3d.gnu.TPROF.MPI.OMP.ex inputs_nohydro.rt insitu.int=1 max_step=3 amr.max_grid_size=32 amr.regrid_on_restart=1

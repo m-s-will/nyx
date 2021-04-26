@@ -9,7 +9,7 @@ echo "     $PANTHEON_DATA_DIR"
 
 # install cinema viewer
 TARNAME=cinema_databases
-cp -rf inputs/cinema/* $PANTHEON_RUN_DIR/ascent_out/$TARNAME
+cp -rf inputs/cinema/* $PANTHEON_RUN_DIR/$TARNAME
 
 pushd $PANTHEON_RUN_DIR/ascent_out > /dev/null 2>&1
 
